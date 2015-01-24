@@ -1,0 +1,38 @@
+/*common*/
+.sep-line{margin:0 0 10px;z-index:1;position:relative;margin:10px 0 20px;height:1px;border-bottom:1px dotted #d9d9d9;overflow:hidden}
+.loading{background:url(../assets/img/tb-loading-16-16.gif) center center no-repeat;width:16px;height:16px;display:block;float:left;margin-top:2px;display:none}
+.u-overlay{position:absolute;left:-9999px;top:-9999px}
+.u-overlay,.popup-content{z-index:100000003!important}
+.u-overlay-mask{background-color:#000;opacity:.3;filter:alpha(opacity=30)}
+.u-popup-mask{background-color:#fff;opacity:0;filter:alpha(opacity=0)}
+.u-popup-mask-hidden,.u-overlay-mask-hidden{display:none}
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;overflow:hidden}
+.clearfix{zoom:1}
+.u-clearfix:after{visibility:hidden;clear:both;content:'';display:block;height:0}
+/* 地址选择 结果 */
+.u-logistic{width:480px;height:24px;background-color:#f8f8f8;margin-top:5px;margin-bottom:5px;font-size:12px;color:#3c3c3c}
+.u-logistic .u-property-type{padding-left:10px;display:inline;float:left;width:60px;color:#6c6c6c;line-height:24px}
+.u-logistic-info{overflow:hidden}
+.u-area-info{line-height:24px;word-break:keep-all;float:left}
+.u-area-body{line-height:24px;word-break:keep-all;float:left}
+.u-address-info,.u-service-info{cursor:pointer;padding:0 3px;margin-right:10px;color:#3c3c3c;display:inline-block;line-height:18px}
+.u-info-active{border:1px solid #428bca;background-color:#428bca;color:#fff}
+.u-address-info:hover,.u-service-info:hover{background:rgba(66,139,202,0.4);border:1px solid #428bca}
+.u-address-info-click{background:rgba(66,139,202,0.4);border:1px solid #428bca}
+.u-address-info{margin-right:5px}
+.u-address-info s{display:inline-block;position:relative;width:0;height:0;overflow:hidden;border-color:#606060 transparent transparent;border-width:4px 4px 0;border-style:solid;margin:3px}
+.u-address-info-s-hover{color:#fff!important;border-color:#fff transparent transparent!important;transform:rotate(180deg);-webkit-transform:rotate(180deg)}
+/* 地址选择 浮动层 */
+.u-areatab-con{border:1px solid #428bca;background-color:#fff;padding:10px;width:414px}
+.u-areatab-con s{display:inline-block;position:relative;width:0;height:0;overflow:hidden;border-color:#606060 transparent transparent;border-width:4px 4px 0;border-style:solid;margin:3px}
+.address-all-close{width:14px;height:14px;position:absolute;right:10px;top:10px;background:url(../assets/img/tb-close-btn.png) no-repeat -33px -26px}
+.u-address-all-title-wrap{width:100%;zoom:1;border-bottom:1px solid #428bca;height:21px;_overflow:hidden;margin-top:10px}
+.u-address-all-title-wrap .address-all-title-hidden{display:none}
+.u-address-all-title-wrap .address-all-title{height:20px;line-height:20px;color:#3c3c3c;font-size:12px;padding:0 2px 0 5px;border-right:1px solid #e5e5e5;border-top:1px solid #e5e5e5;border-left:1px solid #e5e5e5;margin-right:5px;float:left;cursor:pointer;background-color:#fff}
+.u-address-all-title-wrap .address-all-title-selected{color:#000;position:relative;height:21px;border-right:1px solid #428bca;border-top:1px solid #428bca;border-left:1px solid #428bca}
+.u-address-all-con-wrap{width:100%}
+.u-list-add-con{margin:5px 0 0;padding:0;display:block;width:414px}
+.u-list-item{cursor:pointer;line-height:18px;font-size:12px;color:#333;list-style:none;margin:0;padding:4px 10px;overflow:hidden;zoom:1;position:relative}
+.u-list-add-con .u-list-item{margin:5px;float:left;border:1px solid #f8f8f8;padding:0 10px}
+.u-list-item:hover{background:rgba(66,139,202,0.4);border:1px solid #428bca}
