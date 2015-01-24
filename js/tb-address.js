@@ -234,24 +234,27 @@ function getTitleNames(){
     return names
 }
 
-// 不请求服务器，通过本地json获取省市区数据
-function getAllLocalData(){
-    var result = $.ajax({
+// 通过JSONP跨域请求数据
+(function getAllLocalData(){
+    var result
+    $.ajax({
         async: false,
-        dataType : 'json',
-        url : 'assets/city.json',
+        dataType:'jsonp',
+        jsonpCallback : 'getCityDatas',
+        url : 'https://raw.githubusercontent.com/huguangju/cascade-select/master/assets/city.json',
         beforeSend : function(){ loading() },
-        complete : function(){ loaded() }
+        complete : function(){ loaded()}
     })
-    return JSON.parse(result.responseText)
-}
+})()
 
-function parseData(){
+var parsedData
+// 跨域回调函数
+function getCityDatas(data){
     var provs = [],
         citys = [],
         areas = []
 
-    $.each(getAllLocalData(), function(index, item){
+    $.each(data, function(index, item){
         if(item.level == 1){
             provs.push(item)
         }else if(item.level == 2){
@@ -261,17 +264,16 @@ function parseData(){
         }
     })
 
-    return {
+    parsedData = {
         provs : provs,
         citys : citys,
         areas : areas
     }
 }
 
-var parsedData = parseData()
-
 // 所有省
 function getAllProvinceLocal(){
+    console.log(parsedData.provs)
     return parsedData.provs
 }
 
