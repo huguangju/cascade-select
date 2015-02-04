@@ -241,7 +241,7 @@ function getTitleNames(){
         async: false,
         dataType:'jsonp',
         jsonpCallback : 'getCityDatas',
-        url : 'https://raw.githubusercontent.com/huguangju/cascade-select/master/assets/city.json',
+        url : 'https://cdn.rawgit.com/huguangju/cascade-select/master/assets/city.js',
         beforeSend : function(){ loading() },
         complete : function(){ loaded()}
     })
