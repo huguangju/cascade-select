@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>仿淘宝地址选择</title>
+  <link rel="stylesheet" href="../assets/css/address.css">
+  <style type="text/css">
+    .u-logistic{width:480px;background-color:#f8f8f8;margin-top:5px;margin-bottom:5px;font-size:12px;color:#3c3c3c}
+    .u-logistic .u-property-type{padding-left:10px;display:inline;float:left;width:60px;color:#6c6c6c;line-height:24px}
+    .u-logistic-info{overflow:hidden}
+  </style>
+</head>
+<body>
+
+<div class="u-logistic">
+  <span class="u-name u-property-type">配送</span>
+  <div class="u-logistic-info u-clearfix">
+    <div class="u-area-info clearfix">
+      <span class="u-area-body">
+          <span id="u-area-from">广东深圳</span> 至
+          <span id="u-area-to"></span>
+      </span>
+      <span class="loading"></span>
+    </div>
+    <div class="u-service-info"></div>
+  </div>
+</div>
+
+<div class="simple"></div>
+
+<div class="sep-line"></div>
+
+<script type="text/javascript" src="../assets/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../jquery.address.js"></script>
+<script type="text/javascript">
+  $(function(){
+      $('#u-area-to').address();
+
+      //$('.simple').address();
+  })
+</script>
+</body>
+</html>

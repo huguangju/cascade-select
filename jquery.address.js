@@ -1,16 +1,6 @@
-;(function($){
+;(function($, document){
 
   "use strict";
-
-  var $loading = $('.loading'),
-      $addressInfo = $('.u-address-info'),
-      $addressPopup = $('#address-popup'),
-      $addressAllTitle = $('.address-all-title'),
-      $provinceTitle = $('#addressAllTitle-province'),
-      $cityTitle = $('#addressAllTitle-city'),
-      $areaTitle = $('#addressAllTitle-area'),
-      $addressAllConWrap = $('#addressAllConWrap'),
-      $listItem = $('#addressAllConWrap .u-list-item');
 
   function loading(){ $('.loading').show() }
 
@@ -42,15 +32,30 @@
   // 构造函数
   var Address = function (element, options) {
     var base = this,
-        $element = $(element);
+        $ele = $(element);
+
+    var $addressInfo,
+        $addressPopup ,
+        $addressAllTitle ,
+        $provinceTitle ,
+        $cityTitle ,
+        $areaTitle ,
+        $addressAllConWrap ;
 
     base.init = function (data) {
-
       base.setOptions(options);
+
+      $addressInfo = base.insertAddressHandler($ele);
+      $addressPopup = base.insertPopup($ele);
+      $addressAllTitle = $('.address-all-title');
+      $provinceTitle = $('.province-title');
+      $cityTitle = $('.city-title');
+      $areaTitle = $('.area-title');
+      $addressAllConWrap = $('.u-address-all-con-wrap');
 
       base.insertMask();
 
-      base.setAddress(options.initial)
+      base.setAddress(options.initial);
 
       var parsedDatas = parseData(data);
       $(document).data('parsedDatas', parsedDatas);
@@ -74,7 +79,6 @@
           ids = ids.split('-')
           names = names.split('-')
 
-          console.log(names)
           if(names.length == 3){
             base.setTitle($provinceTitle, ids[0], names[0])
             base.setTitle($cityTitle, ids[1], names[1])
@@ -124,7 +128,7 @@
     };
 
     base.insertMask = function(){
-      var $mask = $('<div style="width: 100%; left: 0px; top: 0px; height: 100%; position: fixed; -webkit-user-select: none; z-index: 100000003;" class="u-popup-mask u-overlay-mask u-popup-mask-hidden u-overlay-mask-hidden"></div>').prependTo($('body'))
+      var $mask = $('<div style="width: 100%; left: 0px; top: 0px; height: 100%; position: fixed; -webkit-user-select: none; z-index: 9999;" class="u-popup-mask u-overlay-mask u-popup-mask-hidden u-overlay-mask-hidden"></div>').prependTo($('body'))
       $mask.click(function(){
         $addressPopup.hide();
         $addressInfo.removeClass('u-info-active').find('s').removeClass("u-address-info-s-hover");
@@ -175,10 +179,9 @@
       // 市面板
       if($cityTitle.hasClass('address-all-title-selected')){
         // 市列表
-        //renderData(getAddressByPid(id))
         base.renderData(base.getCitysByPid(parsedDatas.citys, id))
 
-        // 点击了一个市
+        // 点击市
         if(level == base.options.level.city){
           base.setTitle($cityTitle, id, title)
 
@@ -195,14 +198,14 @@
       // 区面板
       if($areaTitle.hasClass('address-all-title-selected')){
 
-        // 点击了一个区
+        // 点击区
         if(level == base.options.level.area){
           base.setTitle($areaTitle, id, title)
 
           // 关闭浮层并最终显示到页面
           var names,
-            _names,
-            oriNames = $addressInfo.data('name')
+             _names,
+             oriNames = $addressInfo.data('name')
 
           var address = {
             pn : $provinceTitle.data('name'),
@@ -307,6 +310,40 @@
       return filteredAreas;
     }
 
+    base.insertPopup = function(target){
+      var popup = [
+        '<div class="u-popup u-overlay" style="z-index: 999;left: 78px;top: 30px;display:none;">',
+          '<div class="u-popup-content u-overlay-content">',
+            '<div class="u-areatab-con">',
+              '<a class="address-all-close" href="#"></a>',
+              '<div class="u-address-all-title-wrap clearfix">',
+                '<div class="address-all-title province-title" data-title="province"></div>',
+                '<div class="address-all-title city-title" data-title="city"></div>',
+                '<div class="address-all-title area-title address-all-title-selected" data-title="area"></div>',
+              '</div>',
+              '<div class="u-address-all-con-wrap clearfix">',
+                '<ul class="u-list-add-con clearfix"></ul>',
+              '</div>',
+          '</div>',
+        '</div>',
+      '</div>'
+      ].join(''),
+        offset = target.offset();
+
+      console.log(offset, target ,target.innerHeight(), target.height());
+
+      return $(popup).css({
+        left : offset.left,
+        top : offset.top + target.height() + 4
+      }).appendTo('body');
+
+    }
+
+    base.insertAddressHandler = function(target){
+      var $handler = $('<div class="u-address-info" title=""><i class="loading"></i></div>');
+      return $handler.appendTo(target);
+    }
+
 
     // 通过JSONP跨域请求数据
     $.ajax({
@@ -355,4 +392,4 @@
     }
   };
 
-}(jQuery));
+}(jQuery, document));
