@@ -1,6 +1,6 @@
 /*common*/
 .sep-line{margin:0 0 10px;z-index:1;position:relative;margin:10px 0 20px;height:1px;border-bottom:1px dotted #d9d9d9;overflow:hidden}
-.loading{background:url(../img/tb-loading-16-16.gif) center center no-repeat;width:16px;height:16px;display:block;float:left;margin-top:2px;display:none}
+.loading{background:url(../images/tb-loading-16-16.gif) center center no-repeat;width:16px;height:16px;display:block;float:left;margin-top:2px;display:none}
 .u-overlay{position:absolute;left:-9999px;top:-9999px}
 .u-overlay,.popup-content{z-index:9999!important}
 .u-overlay-mask{background-color:#000;opacity:.3;filter:alpha(opacity=30)}
@@ -22,7 +22,7 @@
 /* 地址选择 浮动层 */
 .u-areatab-con{border:1px solid #428bca;background-color:#fff;padding:10px;width:414px}
 .u-areatab-con s{display:inline-block;position:relative;width:0;height:0;overflow:hidden;border-color:#606060 transparent transparent;border-width:4px 4px 0;border-style:solid;margin:3px}
-.address-all-close{width:14px;height:14px;position:absolute;right:10px;top:10px;background:url(../img/tb-close-btn.png) no-repeat -33px -26px}
+.address-all-close{width:14px;height:14px;position:absolute;right:10px;top:10px;background:url(../images/tb-close-btn.png) no-repeat -33px -26px}
 .u-address-all-title-wrap{width:100%;zoom:1;border-bottom:1px solid #428bca;height:21px;_overflow:hidden;margin-top:10px}
 .u-address-all-title-wrap .address-all-title-hidden{display:none}
 .u-address-all-title-wrap .address-all-title{height:20px;line-height:20px;color:#3c3c3c;font-size:12px;padding:0 2px 0 5px;border-right:1px solid #e5e5e5;border-top:1px solid #e5e5e5;border-left:1px solid #e5e5e5;margin-right:5px;float:left;cursor:pointer;background-color:#fff}

@@ -1,0 +1,22 @@
+{
+  "name": "cascade-select",
+  "version": "0.0.1",
+  "homepage": "https://github.com/huguangju/cascade-select",
+  "authors": [
+    "huguangju"
+  ],
+  "description": "cascade selector",
+  "main": "./dist/jquery.cascade-select.min.js",
+  "keywords": [
+    "jquery",
+    "select"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
